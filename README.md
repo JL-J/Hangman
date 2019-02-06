@@ -10,4 +10,4 @@ Be careful as you only have 10 guesses before you lose the game!
 ## Further development
 - Currently the word the user is guessing is hard coded. This would need changing so that a random word is selected at the start of each new game for continued play value.
 - Create a reset button.
-- Create a display so that the user can see is they have already guessed that letter in a previous turn.
+- Create a display so that the user can see if they have already guessed that letter in a previous turn.
