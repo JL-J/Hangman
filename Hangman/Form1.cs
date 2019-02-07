@@ -17,29 +17,18 @@ namespace Hangman
             InitializeComponent();
         }
 
-        string word = "pot";
+        GameLogic game = new GameLogic();
         int livesRemaining = 10;
-        string currentDisplay = "***";
         string guess = String.Empty; 
 
         private void TakeTurn(string guess)
         {
-            GuessWord(guess);
+            game.Guess = guess;
+            display.Text = game.Display;
             UpdateLives();
             HasWon();
         }
 
-        private void GuessWord(string letter)
-        {
-            if (word.Contains(letter))
-            {
-                int index = word.IndexOf(letter);
-                StringBuilder updateDisplay = new StringBuilder(currentDisplay);
-                updateDisplay[index] = Convert.ToChar(letter);
-                currentDisplay = updateDisplay.ToString();
-                display.Text = currentDisplay;
-            }
-        }
 
         private void UpdateLives()
         {
@@ -54,7 +43,7 @@ namespace Hangman
 
         private void HasWon()
         {
-            if (!currentDisplay.Contains("*"))
+            if (!game.Display.Contains("*"))
             {
                 MessageBox.Show("You've won!! Congratulations");
             }
