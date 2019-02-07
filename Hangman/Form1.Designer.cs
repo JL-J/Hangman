@@ -61,9 +61,11 @@
             // 
             // display
             // 
-            this.display.Location = new System.Drawing.Point(291, 48);
+            this.display.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.display.Location = new System.Drawing.Point(285, 46);
+            this.display.Margin = new System.Windows.Forms.Padding(5);
             this.display.Name = "display";
-            this.display.Size = new System.Drawing.Size(188, 22);
+            this.display.Size = new System.Drawing.Size(188, 38);
             this.display.TabIndex = 0;
             this.display.Text = "***";
             // 
@@ -89,7 +91,7 @@
             // 
             // z
             // 
-            this.z.Location = new System.Drawing.Point(423, 348);
+            this.z.Location = new System.Drawing.Point(423, 338);
             this.z.Name = "z";
             this.z.Size = new System.Drawing.Size(50, 38);
             this.z.TabIndex = 3;
@@ -99,7 +101,7 @@
             // 
             // y
             // 
-            this.y.Location = new System.Drawing.Point(330, 348);
+            this.y.Location = new System.Drawing.Point(330, 338);
             this.y.Name = "y";
             this.y.Size = new System.Drawing.Size(50, 38);
             this.y.TabIndex = 4;
@@ -109,7 +111,7 @@
             // 
             // x
             // 
-            this.x.Location = new System.Drawing.Point(242, 348);
+            this.x.Location = new System.Drawing.Point(242, 338);
             this.x.Name = "x";
             this.x.Size = new System.Drawing.Size(50, 38);
             this.x.TabIndex = 5;
@@ -119,7 +121,7 @@
             // 
             // w
             // 
-            this.w.Location = new System.Drawing.Point(156, 348);
+            this.w.Location = new System.Drawing.Point(156, 338);
             this.w.Name = "w";
             this.w.Size = new System.Drawing.Size(50, 38);
             this.w.TabIndex = 6;
@@ -129,7 +131,7 @@
             // 
             // v
             // 
-            this.v.Location = new System.Drawing.Point(71, 348);
+            this.v.Location = new System.Drawing.Point(71, 338);
             this.v.Name = "v";
             this.v.Size = new System.Drawing.Size(50, 38);
             this.v.TabIndex = 7;
@@ -139,7 +141,7 @@
             // 
             // s
             // 
-            this.s.Location = new System.Drawing.Point(423, 278);
+            this.s.Location = new System.Drawing.Point(423, 267);
             this.s.Name = "s";
             this.s.Size = new System.Drawing.Size(50, 38);
             this.s.TabIndex = 8;
@@ -149,7 +151,7 @@
             // 
             // t
             // 
-            this.t.Location = new System.Drawing.Point(511, 278);
+            this.t.Location = new System.Drawing.Point(511, 267);
             this.t.Name = "t";
             this.t.Size = new System.Drawing.Size(50, 38);
             this.t.TabIndex = 9;
@@ -169,7 +171,7 @@
             // 
             // u
             // 
-            this.u.Location = new System.Drawing.Point(604, 278);
+            this.u.Location = new System.Drawing.Point(593, 267);
             this.u.Name = "u";
             this.u.Size = new System.Drawing.Size(50, 38);
             this.u.TabIndex = 11;
@@ -179,7 +181,7 @@
             // 
             // n
             // 
-            this.n.Location = new System.Drawing.Point(604, 197);
+            this.n.Location = new System.Drawing.Point(593, 197);
             this.n.Name = "n";
             this.n.Size = new System.Drawing.Size(50, 38);
             this.n.TabIndex = 12;
@@ -189,7 +191,7 @@
             // 
             // r
             // 
-            this.r.Location = new System.Drawing.Point(330, 278);
+            this.r.Location = new System.Drawing.Point(330, 267);
             this.r.Name = "r";
             this.r.Size = new System.Drawing.Size(50, 38);
             this.r.TabIndex = 13;
@@ -199,7 +201,7 @@
             // 
             // q
             // 
-            this.q.Location = new System.Drawing.Point(242, 278);
+            this.q.Location = new System.Drawing.Point(242, 267);
             this.q.Name = "q";
             this.q.Size = new System.Drawing.Size(50, 38);
             this.q.TabIndex = 14;
@@ -209,7 +211,7 @@
             // 
             // p
             // 
-            this.p.Location = new System.Drawing.Point(156, 278);
+            this.p.Location = new System.Drawing.Point(156, 267);
             this.p.Name = "p";
             this.p.Size = new System.Drawing.Size(50, 38);
             this.p.TabIndex = 15;
@@ -219,7 +221,7 @@
             // 
             // o
             // 
-            this.o.Location = new System.Drawing.Point(71, 278);
+            this.o.Location = new System.Drawing.Point(71, 267);
             this.o.Name = "o";
             this.o.Size = new System.Drawing.Size(50, 38);
             this.o.TabIndex = 16;
@@ -259,7 +261,7 @@
             // 
             // g
             // 
-            this.g.Location = new System.Drawing.Point(604, 125);
+            this.g.Location = new System.Drawing.Point(593, 125);
             this.g.Name = "g";
             this.g.Size = new System.Drawing.Size(50, 38);
             this.g.TabIndex = 20;
@@ -330,7 +332,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(524, 400);
+            this.label1.Location = new System.Drawing.Point(484, 400);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 17);
             this.label1.TabIndex = 27;
@@ -338,7 +340,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(660, 400);
+            this.textBox1.Location = new System.Drawing.Point(620, 397);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(53, 22);
             this.textBox1.TabIndex = 28;
@@ -348,7 +350,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(745, 450);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.b);
@@ -378,8 +381,9 @@
             this.Controls.Add(this.l);
             this.Controls.Add(this.a);
             this.Controls.Add(this.display);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.Name = "lives";
-            this.Text = "Form1";
+            this.Text = "Hangman";
             this.ResumeLayout(false);
             this.PerformLayout();
 
