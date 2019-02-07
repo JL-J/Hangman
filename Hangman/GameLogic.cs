@@ -12,10 +12,16 @@ namespace Hangman
         string guess = String.Empty;
         int livesRemaining = 10;
         string currentDisplay = "***";
+        bool gameOver = false;
 
         public int Lives
         {
             get { return UpdateLives(); }
+        }
+
+        public bool IsOver
+        {
+            get { return GameOver(); }
         }
 
         public string Guess
@@ -28,12 +34,17 @@ namespace Hangman
             get { return GuessWord(); }
         }
 
-        public string EndGame
+        public string EndGameMessage
         {
-            get { return HasWonMessage(); }
+            get { return EndMessage(); }
         }
 
-        private string HasWonMessage()
+        private bool GameOver()
+        {
+            return gameOver;
+        }
+
+        private string EndMessage()
         {
             if (livesRemaining == 0)
             {
@@ -55,15 +66,21 @@ namespace Hangman
                 updateDisplay[index] = Convert.ToChar(guess);
                 currentDisplay = updateDisplay.ToString();
             }
-
+            if (!currentDisplay.Contains("*"))
+            {
+                gameOver = true; 
+            }
             return currentDisplay;
         }
 
         private int UpdateLives()
         {
             livesRemaining -= 1;
+            if (livesRemaining == 0)
+            {
+                gameOver = true;
+            }
             return livesRemaining; 
         }
-
     }
 }

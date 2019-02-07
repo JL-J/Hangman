@@ -25,16 +25,16 @@ namespace Hangman
             game.Guess = guess;
             display.Text = game.Display;
             textBox1.Text = game.Lives.ToString();
-            string message = game.EndGame;
-            GameEndMessage(message);
+            if (game.IsOver)
+            {
+                string message = game.EndGameMessage;
+                GameEndMessage(message);
+            }
         }
 
         private void GameEndMessage(string message)
         {
-            if (message != String.Empty)
-            {
-                MessageBox.Show(message);
-            }
+            MessageBox.Show(message);
         }
 
         private void a_Click(object sender, EventArgs e)
