@@ -12,7 +12,6 @@ namespace Hangman
         private string guess;
         private int livesRemaining;
         private string currentDisplay;
-        private bool gameOver;
 
         public GameLogic()
         {
@@ -20,7 +19,46 @@ namespace Hangman
             guess = String.Empty;
             livesRemaining = 10;
             currentDisplay = "***";
-            gameOver = false;
+            IsOver = false;
+        }
+
+        private string GuessWord()
+        {
+            if (word.Contains(guess)) { UpdateDisplay(); }
+            UpdateGameOver();
+            return currentDisplay;
+        }
+
+        private void UpdateDisplay()
+        {
+            int index = word.IndexOf(guess);
+            StringBuilder updateDisplay = new StringBuilder(currentDisplay);
+            updateDisplay[index] = Convert.ToChar(guess);
+            currentDisplay = updateDisplay.ToString();
+        }
+
+        private int UpdateLives()
+        {
+            livesRemaining -= 1;
+            UpdateGameOver();
+            return livesRemaining; 
+        }
+
+        private void UpdateGameOver()
+        {
+            bool noLives = (livesRemaining == 0);
+            bool correctlyGuessedWord = (!currentDisplay.Contains("*"));
+            if ( noLives || correctlyGuessedWord ) { IsOver = true; } 
+        }
+
+        private string EndMessage()
+        {
+            bool noLives = (livesRemaining == 0);
+            bool correctlyGuessedWord = (!currentDisplay.Contains("*"));
+
+            if (noLives) { return "You lose!!"; }
+            if (correctlyGuessedWord) { return "You win! Congratulations!"; }
+            return String.Empty;
         }
 
         public int Lives
@@ -28,10 +66,7 @@ namespace Hangman
             get { return UpdateLives(); }
         }
 
-        public bool IsOver
-        {
-            get { return GameOver(); }
-        }
+        public bool IsOver { get; private set; }
 
         public string Guess
         {
@@ -46,48 +81,6 @@ namespace Hangman
         public string EndGameMessage
         {
             get { return EndMessage(); }
-        }
-
-        private bool GameOver()
-        {
-            return gameOver;
-        }
-
-        private string EndMessage()
-        {
-            bool noLives = (livesRemaining == 0);
-            bool correctlyGuessedWord = (!currentDisplay.Contains("*"));
-
-            if (noLives) { return "You lose!!"; }
-            if (correctlyGuessedWord) { return "You win! Congratulations!"; }
-            return String.Empty; 
-        }
-
-        private string GuessWord()
-        {
-            if (word.Contains(guess))
-            {
-                int index = word.IndexOf(guess);
-                StringBuilder updateDisplay = new StringBuilder(currentDisplay);
-                updateDisplay[index] = Convert.ToChar(guess);
-                currentDisplay = updateDisplay.ToString();
-            }
-            UpdateGameOver();
-            return currentDisplay;
-        }
-
-        private int UpdateLives()
-        {
-            livesRemaining -= 1;
-            UpdateGameOver();
-            return livesRemaining; 
-        }
-
-        private void UpdateGameOver()
-        {
-            bool noLives = (livesRemaining == 0);
-            bool correctlyGuessedWord = (!currentDisplay.Contains("*"));
-            if (noLives || correctlyGuessedWord) { gameOver = true; } 
         }
     }
 }
