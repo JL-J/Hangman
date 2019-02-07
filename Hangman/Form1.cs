@@ -18,24 +18,20 @@ namespace Hangman
         }
 
         GameLogic game = new GameLogic();
-        int livesRemaining = 10;
         string guess = String.Empty; 
 
         private void TakeTurn(string guess)
         {
             game.Guess = guess;
             display.Text = game.Display;
-            UpdateLives();
+            textBox1.Text = game.Lives.ToString();
+            HasLost();
             HasWon();
         }
 
-
-        private void UpdateLives()
+        private void HasLost()
         {
-            livesRemaining -= 1;
-            textBox1.Text = livesRemaining.ToString();
-
-            if (livesRemaining == 0)
+            if (textBox1.Text == 0.ToString())
             {
                 MessageBox.Show("You lose!!");
             }

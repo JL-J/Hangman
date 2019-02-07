@@ -10,6 +10,7 @@ namespace Hangman
     {
         string word = "pot";
         string guess = String.Empty;
+        int livesRemaining = 10;
         string currentDisplay = "***";
 
         private string GuessWord()
@@ -24,6 +25,18 @@ namespace Hangman
 
             return currentDisplay;
         }
+
+        private int UpdateLives()
+        {
+            livesRemaining -= 1;
+            return livesRemaining; 
+        }
+
+        public int Lives
+        {
+            get { return UpdateLives(); }
+        }
+
 
         public string Guess
         {
