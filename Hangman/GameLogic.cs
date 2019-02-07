@@ -56,8 +56,8 @@ namespace Hangman
             bool noLives = (livesRemaining == 0);
             bool correctlyGuessedWord = (!currentDisplay.Contains("*"));
 
-            if (noLives) { return "You lose!!"; }
             if (correctlyGuessedWord) { return "You win! Congratulations!"; }
+            if (noLives) { return "You lose!!"; }
             return String.Empty;
         }
 
