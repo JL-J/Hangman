@@ -22,14 +22,20 @@ namespace Hangman
 
         private void TakeTurn(string guess)
         {
+            UpdateDisply(guess);
+            UpdateLives();
+            if (game.IsOver) { GameEndMessage(game.EndGameMessage); }
+        }
+
+        private void UpdateDisply(string guess)
+        {
             game.Guess = guess;
             display.Text = game.Display;
+        }
+
+        private void UpdateLives()
+        {
             textBox1.Text = game.Lives.ToString();
-            if (game.IsOver)
-            {
-                string message = game.EndGameMessage;
-                GameEndMessage(message);
-            }
         }
 
         private void GameEndMessage(string message)
