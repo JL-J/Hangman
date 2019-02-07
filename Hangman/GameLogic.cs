@@ -13,6 +13,39 @@ namespace Hangman
         int livesRemaining = 10;
         string currentDisplay = "***";
 
+        public int Lives
+        {
+            get { return UpdateLives(); }
+        }
+
+        public string Guess
+        {
+            set { guess = value; }
+        }
+
+        public string Display
+        {
+            get { return GuessWord(); }
+        }
+
+        public string EndGame
+        {
+            get { return HasWonMessage(); }
+        }
+
+        private string HasWonMessage()
+        {
+            if (livesRemaining == 0)
+            {
+                return "You lose!!";
+            }
+            if (!currentDisplay.Contains("*"))
+            {
+                return "You win! Congratulations!";
+            }
+            return String.Empty; 
+        }
+
         private string GuessWord()
         {
             if (word.Contains(guess))
@@ -30,22 +63,6 @@ namespace Hangman
         {
             livesRemaining -= 1;
             return livesRemaining; 
-        }
-
-        public int Lives
-        {
-            get { return UpdateLives(); }
-        }
-
-
-        public string Guess
-        {
-            set { guess = value; }
-        }
-
-        public string Display
-        {
-            get { return GuessWord(); }
         }
 
     }

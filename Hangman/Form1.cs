@@ -25,23 +25,15 @@ namespace Hangman
             game.Guess = guess;
             display.Text = game.Display;
             textBox1.Text = game.Lives.ToString();
-            HasLost();
-            HasWon();
+            string message = game.EndGame;
+            GameEndMessage(message);
         }
 
-        private void HasLost()
+        private void GameEndMessage(string message)
         {
-            if (textBox1.Text == 0.ToString())
+            if (message != String.Empty)
             {
-                MessageBox.Show("You lose!!");
-            }
-        }
-
-        private void HasWon()
-        {
-            if (!game.Display.Contains("*"))
-            {
-                MessageBox.Show("You've won!! Congratulations");
+                MessageBox.Show(message);
             }
         }
 
@@ -60,7 +52,7 @@ namespace Hangman
         private void c_Click(object sender, EventArgs e)
         {
             guess = c.Text;
-            TakeTurn(guess); ;
+            TakeTurn(guess); 
         }
 
         private void d_Click(object sender, EventArgs e)
