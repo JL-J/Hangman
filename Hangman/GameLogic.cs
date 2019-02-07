@@ -55,14 +55,11 @@ namespace Hangman
 
         private string EndMessage()
         {
-            if (livesRemaining == 0)
-            {
-                return "You lose!!";
-            }
-            if (!currentDisplay.Contains("*"))
-            {
-                return "You win! Congratulations!";
-            }
+            bool noLives = (livesRemaining == 0);
+            bool correctlyGuessedWord = (!currentDisplay.Contains("*"));
+
+            if (noLives) { return "You lose!!"; }
+            if (correctlyGuessedWord) { return "You win! Congratulations!"; }
             return String.Empty; 
         }
 
@@ -90,7 +87,6 @@ namespace Hangman
         {
             bool noLives = (livesRemaining == 0);
             bool correctlyGuessedWord = (!currentDisplay.Contains("*"));
-
             if (noLives || correctlyGuessedWord) { gameOver = true; } 
         }
     }
