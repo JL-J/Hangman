@@ -8,11 +8,20 @@ namespace Hangman
 {
     class GameLogic
     {
-        string word = "pot";
-        string guess = String.Empty;
-        int livesRemaining = 10;
-        string currentDisplay = "***";
-        bool gameOver = false;
+        private string word;
+        private string guess;
+        private int livesRemaining;
+        private string currentDisplay;
+        private bool gameOver;
+
+        public GameLogic()
+        {
+            word = "pot";
+            guess = String.Empty;
+            livesRemaining = 10;
+            currentDisplay = "***";
+            gameOver = false;
+        }
 
         public int Lives
         {
@@ -66,21 +75,23 @@ namespace Hangman
                 updateDisplay[index] = Convert.ToChar(guess);
                 currentDisplay = updateDisplay.ToString();
             }
-            if (!currentDisplay.Contains("*"))
-            {
-                gameOver = true; 
-            }
+            UpdateGameOver();
             return currentDisplay;
         }
 
         private int UpdateLives()
         {
             livesRemaining -= 1;
-            if (livesRemaining == 0)
-            {
-                gameOver = true;
-            }
+            UpdateGameOver();
             return livesRemaining; 
+        }
+
+        private void UpdateGameOver()
+        {
+            bool noLives = (livesRemaining == 0);
+            bool correctlyGuessedWord = (!currentDisplay.Contains("*"));
+
+            if (noLives || correctlyGuessedWord) { gameOver = true; } 
         }
     }
 }
